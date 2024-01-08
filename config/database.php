@@ -61,7 +61,43 @@ return [
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
+            'dump' => [
+                'dump_binary_path' => 'E:\xampp\mysql\bin', // only the path, so without `mysqldump` or `pg_dump`
+                'use_single_transaction' => true,
+                'timeout' => 60 * 5, // 5 minute timeout
+                'exclude_tables' => ['table1', 'table2'],
+                'driver'    => 'mysql',
+                // 'add_extra_option' => '--optionname=optionvalue', // for example '--column-statistics=0'
+            ],
         ],
+
+        // 'mysql_second' => [
+        //     'driver' => 'mysql',
+        //     'url' => env('DATABASE_URL'),
+        //     'host' => env('DB_HOST', '127.0.0.1'),
+        //     'port' => env('DB_PORT', '3306'),
+        //     'database' => 'cirrus_c7c67b99-ad45-4994-949a-7923803ce55e',
+        //     'username' => 'root',
+        //     'password' => '',
+        //     'unix_socket' => env('DB_SOCKET', ''),
+        //     'charset' => 'utf8mb4',
+        //     'collation' => 'utf8mb4_unicode_ci',
+        //     'prefix' => '',
+        //     'prefix_indexes' => true,
+        //     'strict' => true,
+        //     'engine' => null,
+        //     'options' => extension_loaded('pdo_mysql') ? array_filter([
+        //         PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+        //     ]) : [],
+        //     'dump' => [
+        //         'dump_binary_path' => 'E:\xampp\mysql\bin', // only the path, so without `mysqldump` or `pg_dump`
+        //         'use_single_transaction' => true,
+        //         'timeout' => 60 * 5, // 5 minute timeout
+        //         'exclude_tables' => ['table1', 'table2'],
+        //         'driver'    => 'mysql',
+        //         // 'add_extra_option' => '--optionname=optionvalue', // for example '--column-statistics=0'
+        //     ],
+        // ],
 
         'pgsql' => [
             'driver' => 'pgsql',
@@ -90,7 +126,6 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
         ],
-
     ],
 
     /*
