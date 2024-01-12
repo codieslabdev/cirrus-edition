@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\TenantController;
+use App\Http\Controllers\TenantUser\CustomerController;
+use App\Http\Controllers\TenantUser\TenantUserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,5 +28,6 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])-
 Route::resource('tenants', TenantController:: class); //added
 
 Route::middleware(["verifyTenant"])->group(function () {
-    Route::get('/home', [App\Http\Controllers\TenantUser\TenantUserController::class, 'index'])->name('tenant.user.home');
+    Route::get('/home', [TenantUserController::class, 'index'])->name('tenant.user.home');
+    Route::resource('customers', CustomerController:: class);
 });

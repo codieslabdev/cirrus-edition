@@ -77,7 +77,7 @@
             </a>
         </li>
         <li class="menu-item {{ $routeName==='' ? "active" : "" }}">
-            <a href="{{route('tenant.user.home')}}" class="menu-link">
+            <a href="{{route('customers.index')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-user"></i>
                 <div data-i18n="Dashboards">Customers</div>
             </a>
