@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tenant;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -44,6 +45,12 @@ class TenantController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
         $tenant = Tenant::create($validatedData);
+        User::create([
+            'user_name' => $request->name,
+            'role' => 2,
+            'password' => $request->password,
+            'company_ids' => json_encode([$tenant->id]),
+        ]);
         $tenant->domains()->create([
             'domain' => $validatedData['domain_name'].'.'.config('app.domain')
         ]);

@@ -6,8 +6,8 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
-                    {{ __('Tenants') }}
-                    <a href="{{route('tenants.create')}}" class="btn btn-secondary ">Add Tenants</a>
+                    {{ __('Company') }}
+                    <a href="{{route('tenants.create')}}" class="btn btn-secondary ">Add Company</a>
                 </div>
 
                 <div class="card-body">

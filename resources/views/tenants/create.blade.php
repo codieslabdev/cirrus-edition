@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    {{ __('Add Tenants') }}
+                    {{ __('Add Company') }}
                 </div>
 
                 <div class="card-body">

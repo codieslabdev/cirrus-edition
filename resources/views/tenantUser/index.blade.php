@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -34,7 +34,41 @@
     <h1>Hello {{tenant('name')}}</h1>
     <h1>This is your multi-tenant application.</h1>
     <h1>The id of the current tenant is {{tenant('id')}}</h1>
+    <div>
+        <a class="dropdown-item" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+            {{ __('Logout') }}
+        </a>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
+    </div>
 </div>
 
 </body>
-</html>
+</html> --}}
+
+@extends('layouts.tenantUser.app')
+
+@section('content')
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">{{ __('Dashboard') }}</div>
+                    {{-- @dump(tenant()) --}}
+                    <div class="m-3">
+                        <h3>Hello {{tenant('name')}}</h3>
+                        {{-- <h3>This is your multi-tenant application.</h3>
+                        <h3>The id of the current tenant is <br/> {{tenant('id')}}</h3> --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+
+
+

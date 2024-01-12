@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Models\Tenant;
 use Illuminate\Support\Facades\Route;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
 use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
@@ -24,9 +25,13 @@ Route::middleware([
     PreventAccessFromCentralDomains::class,
 ])->group(function () {
     // Route::get('/', function () {
-    //     // dd(tenant()->toArray()); //added
+    //     // dd(tenant('id')); //added
+    //     // $tenant = Tenant::find(tenant('id'));
+    //     // tenancy()->initialize($tenant);
     //     return tenant('name').', This is your multi-tenant application. The id of the current tenant is ' . tenant('id');
     // });
 
-    Route::get('/', [App\Http\Controllers\TenantUser\TenantUserController::class, 'index']);
+    // Route::get('/home', [App\Http\Controllers\TenantUser\TenantUserController::class, 'index'])->name('tenant.user.home');
 });
+
+Route::get('/home', [App\Http\Controllers\TenantUser\TenantUserController::class, 'index'])->name('tenant.user.home');
